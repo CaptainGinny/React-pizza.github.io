@@ -1,11 +1,7 @@
 import React from 'react'
 
 export default function PizzaBlock({ title, price }) {
-  const [count, setCount] = React.useState(0);
-
-  const clickToAdd = () => {
-    setCount(count + 1);
-  }
+ 
 
   return (
     <div className="pizza-block">
@@ -28,7 +24,7 @@ export default function PizzaBlock({ title, price }) {
     </div>
     <div className="pizza-block__bottom">
       <div className="pizza-block__price">от {price} ₽</div>
-      <button onClick={clickToAdd} className="button button--outline button--add">
+      <button className="button button--outline button--add">
         <svg
           width="12"
           height="12"
@@ -41,7 +37,7 @@ export default function PizzaBlock({ title, price }) {
           />
         </svg>
         <span>Добавить</span>
-        <i>{count}</i>
+        <i>0</i>
       </button>
     </div>
   </div>
