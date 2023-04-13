@@ -1,7 +1,9 @@
 import React from 'react'
+import pizzas from '../assets/pizzas.json'
 
-export default function PizzaBlock({ title, price }) {
+export default function PizzaBlock({ title, price, imageUrl, sizes, types }) {
  
+
 
   return (
     <div className="pizza-block">
