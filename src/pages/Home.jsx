@@ -17,6 +17,7 @@ export default function Home() {
         setItems(arr);
         setIsloading(false);
       });
+      window.scrollTo(0, 0);
   }, []);
   return (
     <div className="container">
