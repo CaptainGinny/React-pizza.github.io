@@ -1,19 +1,21 @@
-import React from 'react'
+import React from 'react';
 
-export default function Categories() {
-
-  const [activeIndex, setActiveIndex] = React.useState(0);
+export default function Categories({ value, onChangeCategory }) {
 
   const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
 
   return (
     <div className="categories">
-    <ul>
-      {
-        categories.map((value, i) => 
-        <li key={i} onClick={() =>setActiveIndex(i)} className={activeIndex === i ? "active" : ''}>{value}</li>
-      )}
-    </ul>
-  </div>
-  )
+      <ul>
+        {categories.map((catergoryName, i) => (
+          <li
+            key={i}
+            onClick={() => onChangeCategory(i)}
+            className={value === i ? 'active' : ''}>
+            {catergoryName  }
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
