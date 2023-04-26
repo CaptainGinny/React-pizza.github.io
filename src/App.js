@@ -8,23 +8,23 @@ import NotFound from './pages/NotFound';
 
 import './scss/app.scss';
 
-const SearchContext = React.createContext('');
+// const SearchContext = React.createContext('');
 
 function App() {
-  const [serchValue, setSearchValue] = React.useState('');
+  const [searchValue, setSearchValue] = React.useState('');
 
   return (
     <div className="wrapper">
-      <SearchContext.Provider value={{ serchValue, setSearchValue }}>
-        <Header serchValue={serchValue} setSearchValue={setSearchValue} />
-        <div className="content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
-      </SearchContext.Provider>
+      {/* <SearchContext.Provider value={{ searchValue, setSearchValue }}> */}
+      <Header searchValue={searchValue} setSearchValue={setSearchValue} />
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+      {/* </SearchContext.Provider> */}
     </div>
   );
 }
