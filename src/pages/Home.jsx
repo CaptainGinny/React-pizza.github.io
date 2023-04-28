@@ -4,8 +4,11 @@ import Categories from '../сomponents/Categories';
 import Sort from '../сomponents/Sort';
 import PizzaBlock from '../сomponents/PizzaBlock';
 import Skeleton from '../сomponents/PizzaBlock/Skeleton';
+import Pagination from '../сomponents/Pagination';
+import { SearchContext } from '../App';
 
 export default function Home() {
+  const { searchValue } = React.useContext(SearchContext);
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsloading] = React.useState(true);
   const [categoryId, setCategoryId] = React.useState(0);
@@ -40,6 +43,7 @@ export default function Home() {
           ? [...new Array(10)].map((_, index) => <Skeleton key={index} />)
           : items.map((obj) => <PizzaBlock key={obj.id} {...obj} />)}
       </div>
+      <Pagination />
     </div>
   );
 }
