@@ -1,11 +1,19 @@
 import React from 'react';
 import { SearchContext } from '../../App';
+import debounce from 'lodash.debounce'
 
 import styles from './Search.module.scss';
 
 
 export default function Search() {
   const {searchValue, setSearchValue} = React.useContext(SearchContext);
+  const inputRef = React.useRef();
+
+  const onClickClear = () => {
+    setSearchValue('');
+    inputRef.current.focus();
+  };
+
 
   return (
     <div className={styles.root}>
@@ -16,6 +24,7 @@ export default function Search() {
         </g>
       </svg>
       <input
+        ref={inputRef}
         value={searchValue}
         onChange={(event) => setSearchValue(event.target.value)}
         className={styles.input}
@@ -23,7 +32,7 @@ export default function Search() {
       />
       {searchValue && (
          <svg
-         onClick={() => setSearchValue('')}
+         onClick={onClickClear}
          className={styles.clearIcon}
          data-name="Layer 1"
          height="200"

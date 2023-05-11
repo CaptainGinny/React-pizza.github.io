@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategoryId } from '../redux/slices/filterSlice';
@@ -10,13 +11,11 @@ import Skeleton from '../сomponents/PizzaBlock/Skeleton';
 import Pagination from '../сomponents/Pagination';
 import { SearchContext } from '../App';
 
-
 export default function Home() {
   const dispatch = useDispatch();
   const categoryId = useSelector((state) => state.filter.categoryId);
   const sortType = useSelector((state) => state.filter.sort.sortProperty);
-  
- 
+
   const { searchValue } = React.useContext(SearchContext);
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsloading] = React.useState(true);
@@ -24,18 +23,17 @@ export default function Home() {
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
   };
-  console.log('id category', categoryId);
 
   React.useEffect(() => {
     setIsloading(true);
-    fetch(
-      `https://6419b14fc152063412c93ba7.mockapi.io/items?${
-        categoryId > 0 ? `category=${categoryId}` : ''
-      }&sortBy=${sortType.sortProperty}&order=desc`,
-    )
-      .then((res) => res.json())
-      .then((arr) => {
-        setItems(arr);
+    axios
+      .get(
+        `https://6419b14fc152063412c93ba7.mockapi.io/items?${
+          categoryId > 0 ? `category=${categoryId}` : ''
+        }&sortBy=${sortType.sortProperty}&order=desc`,
+      )
+      .then((res) => {
+        setItems(res.data);
         setIsloading(false);
       });
     window.scrollTo(0, 0);
