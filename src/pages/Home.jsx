@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { setCategoryId } from '../redux/slices/filterSlice';
+import { setCategoryId, setPageCount } from '../redux/slices/filterSlice';
 
 import Categories from '../сomponents/Categories';
 import Sort from '../сomponents/Sort';
@@ -23,6 +23,10 @@ export default function Home() {
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
   };
+
+  const onChangePage = number => {
+    dispatch(setPageCount(number))
+  }
 
   React.useEffect(() => {
     setIsloading(true);
@@ -50,7 +54,7 @@ export default function Home() {
           ? [...new Array(10)].map((_, index) => <Skeleton key={index} />)
           : items.map((obj) => <PizzaBlock key={obj.id} {...obj} />)}
       </div>
-      <Pagination />
+      <Pagination onChangePage={onChangePage}/>
     </div>
   );
 }
