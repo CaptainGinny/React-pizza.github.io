@@ -6,12 +6,12 @@ import styles from './Search.module.scss';
 
 export default function Search() {
   const [value, setValue] = React.useState('');
-  const {setSearchValue} = React.useContext(SearchContext);
+  const {searchValue, setSearchValue} = React.useContext(SearchContext);
   const inputRef = React.useRef();
 
   const updateSearchValue = React.useCallback(
     debounce((str) => {
-      setSearchValue(str);
+      setSearchValue(str); 
     }, 250),
     [],
   );
