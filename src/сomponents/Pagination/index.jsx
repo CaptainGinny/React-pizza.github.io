@@ -17,6 +17,6 @@ export default function Pagination({ currentPage, onChangePage }) {
         forcePage={currentPage - 1}
         renderOnZeroPageCount={null}
       />
-    </>
+    </> 
   )
 }

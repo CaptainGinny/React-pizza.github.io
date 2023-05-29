@@ -16,7 +16,7 @@ export default function Search() {
     [],
   );
 
-  const onChangeInput = event => {
+  const onChangeInput = (event) => {
     setValue(event.target.value);
     updateSearchValue(event.target.value);
   };
