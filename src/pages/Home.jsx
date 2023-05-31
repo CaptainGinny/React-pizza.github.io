@@ -13,6 +13,7 @@ import Skeleton from '../сomponents/PizzaBlock/Skeleton';
 import Pagination from '../сomponents/Pagination';
 import { SearchContext } from '../App';
 
+
 export default function Home() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,7 +21,6 @@ export default function Home() {
   const isMounted = React.useRef(false);
 
   const { categoryId, sort, currentPage } = useSelector((state) => state.filter);
- 
   const { searchValue } = React.useContext(SearchContext);
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsloading] = React.useState(true);
@@ -28,6 +28,7 @@ export default function Home() {
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
   };
+ 
 
   const onChangePage = (number) => {
     dispatch(setCurrentPage(number));
@@ -54,6 +55,18 @@ export default function Home() {
   };
 
   React.useEffect(() => {
+    if(isMounted.current) {
+      const queryString = qs.stringify({
+        sortProperty: sort.sortProperty,
+        categoryId,
+        currentPage,
+      });
+      navigate(`?${queryString}`);
+   }
+   isMounted.current = true;
+  }, [categoryId, sort.sortProperty, currentPage]);
+
+  React.useEffect(() => {
     if(window.location.search) {
       const params = qs.parse(window.location.search.substring(1));
       const sort = sortList.find((obj) => obj.sortProperty === params.sortProperty);
@@ -77,18 +90,6 @@ export default function Home() {
     isSearch.current = false;
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
-  React.useEffect(() => {
-    if(isMounted.current) {
-      const queryString = qs.stringify({
-        sortProperty: sort.sortProperty,
-        categoryId,
-        currentPage
-      });
-      navigate(`?${queryString}`);
-   }
-   isMounted.current = true;
-  }, [categoryId, sort.sortProperty, currentPage]);
-
   const pizzas = items.map((obj) => <PizzaBlock key={obj.id} {...obj} />);
   const sceletons = [...new Array(10)].map((_, index) => <Skeleton key={index}/>);
   
@@ -96,13 +97,13 @@ export default function Home() {
     <div className="container">
       <div className="content__top">
         <Categories value={categoryId} onChangeCategory={onChangeCategory} />
-        <Sort/> {/*Нужно сдесь написать value={sortType end fuction onCheng} */}
+        <Sort/> 
       </div>
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
         {isLoading ? sceletons : pizzas}
       </div>
-      <Pagination currentPagee={currentPage} onChangePage={onChangePage}/>
+      {/* <Pagination currentPagee={currentPage} onChangePage={onChangePage}/> */}
     </div>
   );
 }

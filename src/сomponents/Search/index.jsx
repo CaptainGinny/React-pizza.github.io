@@ -14,7 +14,7 @@ export default function Search() {
       setSearchValue(str); 
     }, 250),
     [],
-  );
+ );
 
   const onChangeInput = (event) => {
     setValue(event.target.value);

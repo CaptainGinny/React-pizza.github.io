@@ -10,12 +10,12 @@ export const sortList = [
   { name: 'цене(ASC)', sortProperty: '-price' },
   { name: 'алфавиту(DESC)', sortProperty: 'title' },
   { name: 'алфавиту(ASC)', sortProperty: '-title' },
-];
+]
 
 export default function Sort() {
 
   const dispatch = useDispatch();
-  const sort = useSelector(state => state.filter.sort);
+  const sort = useSelector((state) => state.filter.sort);
 
   const [open, setOpen] = React.useState(false);
 
@@ -51,10 +51,10 @@ export default function Sort() {
                 className={sort.sortProperty === obj.sortProperty ? 'active' : ''}>
                 {obj.name}
               </li>
-            ))}
+            ))};
           </ul>
         </div>
-      )}
+      )} 
     </div>
   );
 }
