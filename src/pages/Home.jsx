@@ -29,6 +29,7 @@ export default function Home() {
     dispatch(setCategoryId(id));
   };
  
+console.log(onChangeCategory);
 
   const onChangePage = (number) => {
     dispatch(setCurrentPage(number));
@@ -41,7 +42,7 @@ export default function Home() {
     const order = sort.sortProperty.includes('-') ? 'asc' : 'desc';
     const category = categoryId > 0 ? `category=${categoryId}` : '';
     // есть вопрос по этой строке
-    const search = searchValue ? `&search=${searchValue}` : '';
+    const search = searchValue ? `?&search=${searchValue}` : '';
 
     axios
       .get(
