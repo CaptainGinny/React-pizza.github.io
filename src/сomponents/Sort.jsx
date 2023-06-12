@@ -11,21 +11,29 @@ export const sortList = [
   { name: 'алфавиту(DESC)', sortProperty: 'title' },
   { name: 'алфавиту(ASC)', sortProperty: '-title' },
 ]
-
+ 
 export default function Sort() {
 
   const dispatch = useDispatch();
   const sort = useSelector((state) => state.filter.sort);
-
+  const sortRef = React.useRef();
   const [open, setOpen] = React.useState(false);
 
   const onClickListItem = (obj) => {
     dispatch(setSort(obj));
     setOpen(false);
   };
+ 
+  React.useEffect(() => {
+    document.body.addEventListener('click', (event) => {
+      // if(!event.path.includes(sortRef.current)) {
+      //   setOpen(false);
+      }
+    );
+  }, []);
 
   return (
-    <div className="sort">
+    <div ref={sortRef} className="sort">
       <div className="sort__label">
         <svg
           width="10"

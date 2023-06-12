@@ -46,7 +46,7 @@ export default function Home() {
     axios
       .get(
         `https://6419b14fc152063412c93ba7.mockapi.io/items?page=${currentPage}&limit=4&
-        ${category}&sortBy=${sortBy}&order=${order}${search}`,
+        ${category}&sortBy=${sortBy}&order=${order}${search}`
       )
       .then((res) => {
         setItems(res.data);
@@ -103,7 +103,7 @@ export default function Home() {
       <div className="content__items">
         {isLoading ? sceletons : pizzas}
       </div>
-      {/* <Pagination currentPagee={currentPage} onChangePage={onChangePage}/> */}
+      <Pagination currentPage={currentPage} onChangePage={onChangePage}/>
     </div>
   );
 }

@@ -8,7 +8,6 @@ export default function Search() {
   const [value, setValue] = React.useState('');
   const {setSearchValue} = React.useContext(SearchContext);
   const inputRef = React.useRef();
-
   const updateSearchValue = React.useCallback(
     debounce((str) => {
       setSearchValue(str); 
@@ -16,15 +15,15 @@ export default function Search() {
     [],
  );
 
+  const onClickClear = () => {
+    setSearchValue('');
+   
+    inputRef.current.focus();
+  };
+
   const onChangeInput = (event) => {
     setValue(event.target.value);
     updateSearchValue(event.target.value);
-  };
-
-  const onClickClear = () => {
-    setSearchValue('');
-    setValue('');
-    inputRef.current.focus();
   };
 
   return (
