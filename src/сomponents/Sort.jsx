@@ -1,8 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setSort } from '../redux/slices/filterSlice';
-import { current } from '@reduxjs/toolkit';
+import { selectSort, setSort } from '../redux/slices/filterSlice';
 
 export const sortList = [
   { name: 'популярности(DESC)', sortProperty: 'rating' },
@@ -11,12 +10,11 @@ export const sortList = [
   { name: 'цене(ASC)', sortProperty: '-price' },
   { name: 'алфавиту(DESC)', sortProperty: 'title' },
   { name: 'алфавиту(ASC)', sortProperty: '-title' },
-]
- 
-export default function Sort() {
+];
 
+export default function Sort() {
   const dispatch = useDispatch();
-  const sort = useSelector((state) => state.filter.sort);
+  const sort = useSelector(selectSort);
   const sortRef = React.useRef();
 
   const [open, setOpen] = React.useState(false);
@@ -28,17 +26,15 @@ export default function Sort() {
 
   React.useEffect(() => {
     const handleClickOutside = (event) => {
-      if(!event.composedPath().includes(sortRef.current)) {
+      if (!event.composedPath().includes(sortRef.current)) {
         setOpen(false);
       }
-    }
+    };
 
     document.body.addEventListener('click', handleClickOutside);
 
     return () => document.body.removeEventListener('click', handleClickOutside);
-    
   }, []);
-
 
   return (
     <div ref={sortRef} className="sort">
@@ -67,10 +63,11 @@ export default function Sort() {
                 className={sort.sortProperty === obj.sortProperty ? 'active' : ''}>
                 {obj.name}
               </li>
-            ))};
+            ))}
+            ;
           </ul>
         </div>
-      )} 
+      )}
     </div>
   );
 }
