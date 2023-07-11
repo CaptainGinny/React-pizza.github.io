@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-export default function FullPizza() {
+const FullPizza: React.FC = () => {
   const [pizza, setPizza] = useState();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -31,4 +31,5 @@ export default function FullPizza() {
       <h4>{pizza.price} ₽</h4>
     </div>
   );
-}
+};
+export default FullPizza;
