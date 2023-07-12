@@ -20,7 +20,7 @@ export const sortList: SortItem[] = [
 export default function Sort() {
   const dispatch = useDispatch();
   const sort = useSelector(selectSort);
-  const sortRef = React.useRef();
+  const sortRef = React.useRef<HTMLDivElement>(null);
 
   const [open, setOpen] = React.useState(false);
 
@@ -30,7 +30,7 @@ export default function Sort() {
   };
 
   React.useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: any) => {  // Позже пофиксить any не должно быть
       if (!event.composedPath().includes(sortRef.current)) {
         setOpen(false);
       }

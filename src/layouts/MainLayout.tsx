@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../сomponents/Header';
 import { Outlet } from 'react-router-dom';
 
-export const MainLayout = () => {
+const MainLayout: React.FC = () => {
   return (
     <div className="wrapper">
       <Header />
@@ -12,3 +12,4 @@ export const MainLayout = () => {
     </div>
   );
 };
+export default MainLayout;

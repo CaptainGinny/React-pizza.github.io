@@ -18,7 +18,7 @@ import Skeleton from '../сomponents/PizzaBlock/Skeleton';
 import Pagination from '../сomponents/Pagination';
 import { fetchPizzas, selectPizzaData } from '../redux/slices/pizzaSlice';
 
-export default function Home() {
+const Home: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isSearch = React.useRef(false);
@@ -27,12 +27,12 @@ export default function Home() {
   const { categoryId, sort, currentPage, searchValue } = useSelector(selectFilter);
   const { items, status } = useSelector(selectPizzaData);
 
-  const onChangeCategory = (id) => {
-    dispatch(setCategoryId(id));
+  const onChangeCategory = (idx: number) => {
+    dispatch(setCategoryId(idx));
   };
 
-  const onChangePage = (number) => {
-    dispatch(setCurrentPage(number));
+  const onChangePage = (page: number) => {
+    dispatch(setCurrentPage(page));
   };
 
   const getPizzas = async () => {
@@ -42,6 +42,7 @@ export default function Home() {
     const search = searchValue ? `?&search=${searchValue}` : '';
 
     dispatch(
+      // @ts-ignore    // ОЧЕНЬ не желательно так делать но в редких случаях ))))
       fetchPizzas({
         sortBy,
         order,
@@ -89,7 +90,7 @@ export default function Home() {
     isSearch.current = false;
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
-  const pizzas = items.map((obj) => (
+  const pizzas = items.map((obj: any) => (   // Пофиксить
     <Link key={obj.id} to={`/pizza/${obj.id}`}>
       <PizzaBlock {...obj} />
     </Link>
@@ -115,3 +116,4 @@ export default function Home() {
     </div>
   );
 }
+export default Home;
