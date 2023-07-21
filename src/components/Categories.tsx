@@ -7,21 +7,16 @@ type CategoriesProps = {
 
 const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
 
-const Categories: React.FC<CategoriesProps> = ({ value, onChangeCategory }) => {
-
-    return (
+export const Categories: React.FC<CategoriesProps> = React.memo(({ value, onChangeCategory }) => {
+  return (
     <div className="categories">
       <ul>
-        {categories.map((catergoryName, i) => (
-          <li
-            key={i}
-            onClick={() => onChangeCategory(i)}
-            className={value === i ? 'active' : ''}>
-            {catergoryName}
+        {categories.map((categoryName, i) => (
+          <li key={i} onClick={() => onChangeCategory(i)} className={value === i ? 'active' : ''}>
+            {categoryName}
           </li>
         ))}
       </ul>
     </div>
   );
-}
-export default Categories;
+});

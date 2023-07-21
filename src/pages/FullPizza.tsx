@@ -1,31 +1,34 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const FullPizza: React.FC = () => {
-  const [pizza, setPizza] = useState<{
+  const [pizza, setPizza] = React.useState<{
     imageUrl: string;
     title: string;
     price: number;
   }>();
+
   const { id } = useParams();
   const navigate = useNavigate();
 
   React.useEffect(() => {
     async function fetchPizza() {
       try {
-        const { data } = await axios.get(`https://6419b14fc152063412c93ba7.mockapi.io/items/` + id);
+        const { data } = await axios.get('https://626d16545267c14d5677d9c2.mockapi.io/items/' + id);
         setPizza(data);
       } catch (error) {
         alert('Ошибка при получении пиццы!');
         navigate('/');
       }
     }
+
     fetchPizza();
   }, []);
 
   if (!pizza) {
-    return 'Загрузка...';
+    return <>Загрузка...</>;
   }
 
   return (
@@ -33,7 +36,13 @@ const FullPizza: React.FC = () => {
       <img src={pizza.imageUrl} />
       <h2>{pizza.title}</h2>
       <h4>{pizza.price} ₽</h4>
+      <Link to="/">
+        <button className="button button--outline button--add">
+          <span>Назад</span>
+        </button>
+      </Link>
     </div>
   );
 };
+
 export default FullPizza;
