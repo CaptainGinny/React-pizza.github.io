@@ -13,7 +13,7 @@ const Cart = Loadable({
   loading: () => <div>Идёт загрузка корзины...</div>,
 });
 
-//Ленивая подгрузка в браузере
+//Ленивая подгрузка только в браузере
 const FullPizza = React.lazy(() => import(/* webpackChunkName: "FullPizza" */ './pages/FullPizza'));
 const NotFound = React.lazy(() => import(/* webpackChunkName: "NotFound" */ './pages/NotFound'));
 
