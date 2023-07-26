@@ -4,14 +4,14 @@ import { useNavigate } from 'react-router-dom';
 
 import { Categories, Sort, PizzaBlock, Skeleton, Pagination } from '../components';
 
-import { sortList } from '../components/Sort';
+// import { sortList } from '../components/Sort';
 
 import { useAppDispatch } from '../redux/store';
 import { selectFilter } from '../redux/filter/selectors';
 import { selectPizzaData } from '../redux/pizza/selectors';
 import { setCategoryId, setCurrentPage, setFilters } from '../redux/filter/slice';
 import { fetchPizzas } from '../redux/pizza/asyncActions';
-import { SearchPizzaParams } from '../redux/pizza/types';
+// import { SearchPizzaParams } from '../redux/pizza/types';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
