@@ -1,31 +1,31 @@
-# Проект 🍕 React Pizza
+# Project 🍕 React Pizza
 
-## 🔥 Я научился:
+## 🔥 I learned to:
 
-- Разрабатывать полноценное фронтенд-приложение на ReactJS.
-- Создавать компоненты, страницы, сортировку, поиск, пагинацию, фильтрацию, popup-окна и т.д.
-- Взаимодействовать с серверной частью, отправлять запросы на бэкенд.
-- Разрабатывать навигацию по странице без перезагрузки.
-- Создавать глобальное хранилище данных для всего приложения.
-- Писать строго типизированный код на TypeScript.
-- Работать с LocalStorage для хранения настроек сайта.
-- Lazy Loading (ленивую подгрузку) + debounce (оптимизацию для поиска пицц).
-- Оптимизировать перерисовки/ререндеры компонентов, code splitting (разделение кода на отдельные JS-файлы), что такое tree shaking и как сокращать импорты компонентов.
-- Делать адаптивную вёрстку.
-- Деплоить приложение в интернет
-- и т.д.
+- Develop a full frontend application on ReactJS.
+- Create components, pages, sorting, search, paging, filtering, popup-windows, etc.
+- Interact with the server part, send backend requests.
+- Develop navigation on the page without rebooting.
+- Create a global data warehouse for the entire application.
+- Write strictly typed code in TypeScript.
+- Work with LocalStorage to store site settings.
+- Lazy Loading (lazy loading) + debounce (optimization for finding pizzas).
+- Optimize redraw/rerender components, code splitting (code splitting into separate JS files), what is tree shaking and how to reduce component imports.
+- Make adaptive typesetting.
+- Deplete app on internet
+- etc.
 
-# 🛠 Технологии:
+# 🛠 Technologies:
 
 - **ReactJS 18**
 - **TypeScript**
-- **Redux Toolkit** (хранение данных / пицц)
-- **React Router v6** (навигация)
-- **Axios + Fetch** (отправка запроса на бэкенд)
-- **React Hooks** (хуки)
-- **Prettier** (форматирование кода)
-- CSS-Modules / SCSS (стилизация)
-- React Content Loader (скелетон)
-- React Pagination (пагинация)
+- **Redux Toolkit**
+- **React Router v6**
+- **Axios + Fetch**
+- **React Hooks**
+- **Prettier**
+- CSS-Modules / SCSS
+- React Content Loader
+- React Pagination
 - Lodash.Debounce
 - Code Splitting, React Loadable, useWhyDidYouUpdate
