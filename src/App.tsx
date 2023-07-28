@@ -10,7 +10,7 @@ import MainLayout from './layouts/MainLayout';
 //Ленивая подгрузка на стороне сервера
 const Cart = Loadable({
   loader: () => import(/* webpackChunkName: "Cart" */ './pages/Cart'),
-  loading: () => <div>Идёт загрузка корзины...</div>,
+  loading: () => <div>Cart is loading...</div>,
 });
 
 //Ленивая подгрузка только в браузере
@@ -25,7 +25,7 @@ function App() {
         <Route
           path="cart"
           element={
-            <Suspense fallback={<div>Идёт загрузка корзины...</div>}>
+            <Suspense fallback={<div>Cart is loading...</div>}>
               <Cart />
             </Suspense>
           }
@@ -33,7 +33,7 @@ function App() {
         <Route
           path="pizza/:id"
           element={
-            <Suspense fallback={<div>Идёт загрузка...</div>}>
+            <Suspense fallback={<div>Loading...</div>}>
               <FullPizza />
             </Suspense>
           }
@@ -41,7 +41,7 @@ function App() {
         <Route
           path="*"
           element={
-            <Suspense fallback={<div>Идёт загрузка...</div>}>
+            <Suspense fallback={<div>Loading...</div>}>
               <NotFound />
             </Suspense>
           }
