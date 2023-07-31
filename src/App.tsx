@@ -1,5 +1,5 @@
 import Loadable from 'react-loadable';
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
@@ -13,9 +13,19 @@ const Cart = Loadable({
   loading: () => <div>Cart is loading...</div>,
 });
 
+const FullPizza = Loadable({
+  loader: () => import(/* webpackChunkName: "FullPizza" */ './pages/FullPizza'),
+  loading: () => <div>Pizzas is loading...</div>,
+});
+
+const NotFound = Loadable({
+  loader: () => import(/* webpackChunkName: "NotFound" */ './pages/NotFound'),
+  loading: () => <div>Cart is loading...</div>,
+});
+
 //Ленивая подгрузка только в браузере
-const FullPizza = React.lazy(() => import(/* webpackChunkName: "FullPizza" */ './pages/FullPizza'));
-const NotFound = React.lazy(() => import(/* webpackChunkName: "NotFound" */ './pages/NotFound'));
+// const FullPizza = React.lazy(() => import(/* webpackChunkName: "FullPizza" */ './pages/FullPizza'));
+// const NotFound = React.lazy(() => import(/* webpackChunkName: "NotFound" */ './pages/NotFound'));
 
 function App() {
   return (
