@@ -107,7 +107,7 @@ const Home: React.FC = () => {
       {status === 'error' ? (
         <div className="content__error-info">
           <h2>Error occurred 😕</h2>
-          <p>Unfortunately, we couldn’t get the pits. Try again later.</p>
+          <p>Unfortunately, we couldn't get the pits. Try again later.</p>
         </div>
       ) : (
         <div className="content__items">{status === 'loading' ? skeletons : pizzas}</div>
