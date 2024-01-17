@@ -28,4 +28,4 @@
 - React Content Loader
 - React Pagination
 - Lodash.Debounce
-- Code Splitting, React Loadable, useWhyDidYouUpdate
+- Code Splitting, React Loadable
