@@ -1,4 +1,6 @@
-# Project 🍕 React Pizza
+# 🍕 React Pizza
+
+[Demo](https://captainginny.github.io/React-pizza.github.io/)
 
 ## 🔥 I learned to:
 
