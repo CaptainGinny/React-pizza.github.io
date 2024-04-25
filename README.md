@@ -20,7 +20,7 @@
 # 🛠 Technologies:
 
 - **ReactJS 18**
-- **TypeScript**https://captainginny.github.io/React-pizza.github.io/
+- **TypeScript**
 - **Redux Toolkit**
 - **React Router v6**
 - **Axios + Fetch**
