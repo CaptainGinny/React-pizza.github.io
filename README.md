@@ -1,6 +1,6 @@
 # 🍕 React Pizza
 
-[Demo](https://captainginny.github.io/React-pizza.github.io/)
+[Demo](https://captainginny.github.io/react-pizza.github.io/)
 
 ## 🔥 I learned to:
 
