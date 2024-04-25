@@ -24,8 +24,8 @@
 - **Axios + Fetch**
 - **React Hooks**
 - **Prettier**
-- CSS-Modules / SCSS
-- React Content Loader
-- React Pagination
-- Lodash.Debounce
-- Code Splitting, React Loadable
+- **CSS-Modules / SCSS**
+- **React Content Loader**
+- **React Pagination**
+- **Lodash.Debounce**
+- **Code Splitting, React Loadable**
