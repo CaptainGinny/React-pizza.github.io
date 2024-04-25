@@ -1,5 +1,7 @@
 # Project 🍕 React Pizza
 
+[Demo](https://captainginny.github.io/React-pizza.github.io/)
+
 ## 🔥 I learned to:
 
 - Develop a full frontend application on ReactJS.
@@ -18,7 +20,7 @@
 # 🛠 Technologies:
 
 - **ReactJS 18**
-- **TypeScript**
+- **TypeScript**https://captainginny.github.io/React-pizza.github.io/
 - **Redux Toolkit**
 - **React Router v6**
 - **Axios + Fetch**
